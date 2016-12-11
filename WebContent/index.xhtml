@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	
+	<h:form id="form">
+		<h:panelGrid id="panel" columns="2" cellpadding="10" cellspacing="1" 
+			border="1" styleClass="grid">
+			<f:facet name="header">
+				<h:outputText value="Geração de Número Aleatório" />
+			</f:facet>
+			<h:outputText value="Quantidade de Números:" />
+			<h:selectOneMenu value="#{pageBean.quantidade}">
+				<f:selectItems value="#{pageBean.numeros}" />
+			</h:selectOneMenu>
+			
+			<h:outputText  value="Valor minímo:" />
+			<h:inputText value="#{pageBean.minimo}" />
+			
+			<h:outputText value="Valor máximo:" />
+			<h:inputText value="#{pageBean.maximo}" />
+			
+			<h:commandButton value="Gerar" action="#{pageBean.doGenerate}" />
+		</h:panelGrid>
+	</h:form>
+	
+		<ol>
+			<ui:repeat var="valor" value="#{pageBean.valores}">
+				<li>#{valor}</li>
+			</ui:repeat>
+		</ol>
+</h:body> 
+</html>
